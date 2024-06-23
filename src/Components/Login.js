@@ -17,7 +17,7 @@ export default function Login() {
       .then((result) => {
         // Handle successful Google sign-in
         console.log("Google sign-in successful:", result.user.email);
-        alert("Google sign-in successful");
+        alert("Google sign-in successful", result.user.email);
         // Optionally, redirect the user
       })
       .catch((error) => {

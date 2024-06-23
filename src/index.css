@@ -177,3 +177,7 @@ code {
   color: #999;
   text-decoration: none;
 }
+.Contect-1 {
+  display: flex;
+  justify-content: center;
+}

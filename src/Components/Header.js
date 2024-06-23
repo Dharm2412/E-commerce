@@ -32,7 +32,7 @@ function Header(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Contect">
+              <Link className="nav-link" to="/contect">
                 Contact Us
               </Link>
             </li>
