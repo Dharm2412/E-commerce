@@ -1,0 +1,6 @@
+{
+  "git.autorefresh": false,
+  "git.confirmForcePush": false,
+  "git.confirmNoVerifyCommit": true,
+  "git.openDiffOnClick": false
+}
