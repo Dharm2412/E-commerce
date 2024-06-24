@@ -181,3 +181,22 @@ code {
   display: flex;
   justify-content: center;
 }
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 10px;
+}
+
+.card-body .card-title {
+  font-weight: bold;
+}
+.card-body1 {
+  display: flex;
+  gap: 5px;
+  margin-left: 15px;
+}

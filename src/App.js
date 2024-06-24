@@ -7,6 +7,8 @@ import Signin from "./Components/Signin";
 import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import Contect from "./Components/Contect";
+import Product from "./Components/Product";
+import Cart from "./Components/Cart";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/contect" element={<Contect />} />
+          <Route exact path="/Product" element={<Product />} />
+          <Route exact path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
       </div>
