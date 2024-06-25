@@ -3,9 +3,11 @@ import TruckLoader from "./DotLoader";
 
 export default function Cart() {
   return (
-    <div className="text-center">
-      <TruckLoader />
+    <>
+      <div className="cartp">
+        <TruckLoader />
+      </div>
       <h1 className="text-center">cart is Emptey</h1>
-    </div>
+    </>
   );
 }
