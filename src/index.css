@@ -401,3 +401,22 @@ code {
   transform: rotate(330deg) translate(0, -130%);
   animation-delay: -0.1s;
 }
+/* Assuming this is your CSS file, e.g., Chatbot.css */
+.chatbot-container {
+  position: fixed; /* Fixed positioning */
+  bottom: 20px; /* Adjust bottom position as needed */
+  right: 20px; /* Adjust right position as needed */
+  width: 300px; /* Adjust width of the chatbot box */
+  height: 400px; /* Adjust height of the chatbot box */
+  z-index: 1000; /* Set a high z-index to ensure it appears above other content */
+  border: 1px solid #ccc; /* Example border style */
+  background-color: #fff; /* Example background color */
+  overflow: hidden; /* Hide any overflow content */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example box shadow */
+}
+
+.chatbot-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove border from iframe */
+}
