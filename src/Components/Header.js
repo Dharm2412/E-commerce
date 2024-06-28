@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { TiShoppingCart } from "react-icons/ti";
-import { IoBagHandleOutline } from "react-icons/io5";
 
 function Header(props) {
   return (

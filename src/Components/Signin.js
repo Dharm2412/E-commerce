@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaFacebookF, FaGoogle, FaTwitter, FaGithub } from "react-icons/fa";
-import { app } from "../firebase";
+
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const Signin = () => {

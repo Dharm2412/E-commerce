@@ -5,11 +5,23 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCwWEKyRVO83aH31HUpFq1SG3TJBRsE0Qg",
+  authDomain: "trand-mall.firebaseapp.com",
+  projectId: "trand-mall",
+  storageBucket: "trand-mall.appspot.com",
+  messagingSenderId: "879751164360",
+  appId: "1:879751164360:web:98122e82badc8deda3d0fd",
+  measurementId: "G-PG3NDJT56Z",
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const auth = getAuth();
   const provider = new GoogleAuthProvider();
 
   const googleSignIn = () => {
@@ -54,7 +66,7 @@ export default function Login() {
             placeholder="Enter email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            required // Ensures the field is required
+            required
           />
         </div>
         <div className="form-group my-3">
@@ -66,7 +78,7 @@ export default function Login() {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
-            required // Ensures the field is required
+            required
           />
         </div>
 
