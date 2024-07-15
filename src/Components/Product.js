@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import TruckLoader from "./DotLoader";
 
 export default function Product() {
@@ -52,7 +51,13 @@ export default function Product() {
                 <div className="card__wrapper">
                   <div className="card__price">${product.price}</div>
                   <div className="card__counter">
-                    <button type="button" class="btn btn-primary btn-sm">
+                    <button
+                      type="button"
+                      className="btnj btn-primary btn-sm"
+                      onClick={() =>
+                        (window.location.href = `https://fakestoreapi.com/products/${product.id}`)
+                      }
+                    >
                       Buy Now
                     </button>
                   </div>

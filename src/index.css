@@ -512,10 +512,10 @@ code {
 
 /* updated */
 .card__img {
-  height: 200px; /* Adjust height as needed */
   position: relative;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card__img img {
@@ -541,4 +541,128 @@ code {
 
 .card:hover {
   transform: translateY(-5px); /* Example: Lift card on hover */
+}
+/* styles.css */
+
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0.5rem auto;
+}
+
+.btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4285f4;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-width: 300px;
+  margin: 0.5rem auto;
+}
+
+.btn-google:hover {
+  background-color: #357ae8;
+}
+
+.btn-google svg {
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .btn-primary,
+  .btn-google {
+    width: 80%;
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .form-group {
+    padding: 0 10px;
+  }
+
+  .form-group input {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0.5rem auto;
+}
+
+.btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4285f4;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-width: 300px;
+  margin: 0.5rem auto;
+}
+
+.btn-google:hover {
+  background-color: #357ae8;
+}
+
+.btn-google svg {
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .btn-primary,
+  .btn-google {
+    width: 80%;
+    font-size: 14px;
+    padding: 12px;
+  }
 }

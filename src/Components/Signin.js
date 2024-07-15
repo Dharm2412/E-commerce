@@ -42,7 +42,7 @@ const Signin = () => {
             </div>
 
             <div className="col-lg-6 mb-5 mb-lg-0">
-              <div className="card">
+              <div className="cardP">
                 <div className="card-body py-5 px-md-5">
                   <form onSubmit={handleSubmit}>
                     {/* 2 column grid layout with text inputs for the first and last names */}
@@ -53,6 +53,7 @@ const Signin = () => {
                             type="text"
                             id="form3Example1"
                             className="form-control"
+                            required
                           />
                           <label className="form-label" htmlFor="form3Example1">
                             First name
@@ -65,6 +66,7 @@ const Signin = () => {
                             type="text"
                             id="form3Example2"
                             className="form-control"
+                            required
                           />
                           <label className="form-label" htmlFor="form3Example2">
                             Last name
@@ -81,8 +83,13 @@ const Signin = () => {
                         className="form-control"
                         onChange={(e) => setemail(e.target.value)}
                         value={email}
+                        required
                       />
-                      <label className="form-label" htmlFor="form3Example3">
+                      <label
+                        className="form-label"
+                        htmlFor="form3Example3"
+                        required
+                      >
                         Email address
                       </label>
                     </div>

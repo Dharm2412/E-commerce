@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { TiShoppingCart } from "react-icons/ti";
+import "./Header.css";
 
 function Header(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid">
+      <div className="container-fluid flex-end">
         <Link className="navbar-brand" to="/">
           <div className="logo">
             <TiShoppingCart />
@@ -31,28 +32,25 @@ function Header(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contect">
+              <Link className="nav-link" to="/Contact">
                 Contact Us
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Product">
+              <Link className="nav-link" to="/product">
                 Product
               </Link>
             </li>
-
             <li className="nav-item">
               <Link className="nav-link" to="/cart">
                 Cart
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/signin">
-                Sign-in
-              </Link>
-            </li>
           </ul>
         </div>
+        <Link to="/login">
+          <button className="btnp btn-sm">Login</button>
+        </Link>
       </div>
     </nav>
   );
