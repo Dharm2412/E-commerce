@@ -1,7 +1,8 @@
+// App.js
+
 import React from "react";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Updated import
 import Home from "./Components/Home";
 import Signin from "./Components/Signin";
 import Footer from "./Components/Footer";
@@ -9,6 +10,7 @@ import Login from "./Components/Login";
 import Contect from "./Components/Contect";
 import Product from "./Components/Product";
 import Cart from "./Components/Cart";
+import ProductDetails from "./Components/ProductDetails"; // Import ProductDetails component
 
 function App() {
   return (
@@ -21,6 +23,12 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/Contect" element={<Contect />} />
           <Route exact path="/Product" element={<Product />} />
+          <Route
+            exact
+            path="/product/:id/details"
+            element={<ProductDetails />}
+          />
+          {/* Route for ProductDetails */}
           <Route exact path="/cart" element={<Cart />} />
         </Routes>
         <Footer />

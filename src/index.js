@@ -1,17 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import './index.css'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+import { ClerkProvider } from "@clerk/clerk-react";
+import App from "./App";
+
+const frontendApi = "sk_test_fAPsnPOqMX6Bh54fBR77DW4P0uWB3dpMe4RPSxnb5i"; // Replace with your actual Clerk frontend API key
+const publishableKey =
+  "pk_test_cHJlc2VudC1jb3diaXJkLTMwLmNsZXJrLmFjY291bnRzLmRldiQ"; // Replace with your actual Clerk publishable key
+
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <ClerkProvider frontendApi={frontendApi} publishableKey={publishableKey}>
+      <App />
+    </ClerkProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

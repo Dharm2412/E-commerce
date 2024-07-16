@@ -1,0 +1,271 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css");
+
+:root {
+  --color-white-100: hsl(205, 5%, 100%);
+  --color-white-200: hsl(205, 5%, 90%);
+  --color-white-300: hsl(205, 5%, 80%);
+  --color-white-400: hsl(205, 5%, 65%);
+  --color-white-500: hsl(205, 5%, 50%);
+  --color-black-100: hsl(210, 15%, 12%);
+  --color-black-200: hsl(210, 15%, 10%);
+  --color-black-300: hsl(210, 15%, 8%);
+  --color-black-400: hsl(210, 15%, 6%);
+  --color-black-500: hsl(210, 15%, 4%);
+  --color-brown-100: hsl(355, 8%, 70%);
+  --color-brown-200: hsl(355, 8%, 60%);
+  --color-brown-300: hsl(355, 8%, 50%);
+  --color-brown-400: hsl(355, 8%, 40%);
+  --color-brown-500: hsl(355, 8%, 30%);
+}
+
+/* Add your custom styles here */
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-white-100);
+  color: var(--color-black-500);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  background-color: var(--color-white-100);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-black-500);
+}
+
+.burger {
+  display: inline-block;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.burger-line {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: var(--color-black-500);
+  margin: 5px 0;
+}
+
+.cart {
+  padding: 40px 20px;
+}
+
+.cart-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cart-content {
+  display: flex;
+  flex: 1 1 100%;
+  background-color: var(--color-white-100);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.cart-image {
+  flex: 0 0 120px;
+  margin-right: 20px;
+}
+
+.cart-image img {
+  width: 100%;
+  height: auto;
+}
+
+.cart-detail {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-counter {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.cart-block {
+  display: flex;
+  align-items: center;
+}
+
+.cart-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-black-500);
+  font-size: 1.5rem;
+  padding: 5px;
+}
+
+.cart-amount {
+  margin: 0 10px;
+  font-size: 1.1rem;
+}
+
+.cart-remove {
+  margin-left: auto;
+}
+
+.cart-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cart-checkout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: var(--color-brown-300);
+  color: var(--color-white-100);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-darken {
+  background-color: var(--color-black-500);
+}
+
+.btn-darken:hover {
+  background-color: var(--color-black-400);
+}
+
+.wrapper {
+  background-color: var(--color-white-100);
+  padding: 40px 20px;
+}
+
+.wrapper-bgimage {
+  max-width: 300px;
+  margin-right: 40px;
+}
+
+.wrapper-image {
+  width: 100%;
+  height: auto;
+}
+
+.wrapper-content {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper-inform {
+  margin-bottom: 20px;
+}
+
+.display-medium {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-base {
+  font-size: 1.2rem;
+}
+
+.text-normal {
+  font-size: 1rem;
+}
+
+.price,
+.sizes {
+  margin-bottom: 20px;
+}
+
+.sizes-lists {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.sizes-item {
+  padding: 5px 10px;
+  border: 1px solid var(--color-black-500);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.is-select {
+  background-color: var(--color-black-500);
+  color: var(--color-white-100);
+}
+
+.badge {
+  background-color: var(--color-brown-300);
+  color: var(--color-white-100);
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.font-semi {
+  font-weight: 600;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  .cart-content {
+    flex-direction: column;
+  }
+
+  .cart-image {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper-bgimage {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .wrapper-content {
+    flex-direction: column;
+  }
+}

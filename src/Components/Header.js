@@ -1,9 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { TiShoppingCart } from "react-icons/ti";
-import "./Header.css";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
+import "./Header.css"; // Custom CSS file for Header styles
+import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap CSS
 
-function Header(props) {
+function Header() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid flex-end">
@@ -47,10 +54,15 @@ function Header(props) {
               </Link>
             </li>
           </ul>
+          <div className="login">
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
         </div>
-        <Link to="/login">
-          <button className="btnp btn-sm">Login</button>
-        </Link>
       </div>
     </nav>
   );

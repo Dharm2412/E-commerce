@@ -80,7 +80,6 @@ const Home = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      <h1 className="text-center">Categories</h1>
       <section id="features">
         <div className="container">
           <div className="grid">

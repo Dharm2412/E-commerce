@@ -8,6 +8,7 @@ import {
 import { initializeApp } from "firebase/app";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCwWEKyRVO83aH31HUpFq1SG3TJBRsE0Qg",
@@ -25,6 +26,7 @@ const auth = getAuth(app);
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+    const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
 
   const googleSignIn = () => {
@@ -32,6 +34,7 @@ export default function Login() {
       .then((result) => {
         // Handle successful Google sign-in
         console.log("Google sign-in successful:", result.user.email);
+        navigate("/");
         alert("Google sign-in successful", result.user.email);
         // Optionally, redirect the user
       })

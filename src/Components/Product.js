@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import TruckLoader from "./DotLoader";
 
-export default function Product() {
+function Product() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     axios
@@ -15,6 +16,8 @@ export default function Product() {
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
+        setError("Error fetching products. Please try again later.");
+        setLoading(false);
       });
   }, []);
 
@@ -25,17 +28,14 @@ export default function Product() {
     flexWrap: "wrap",
   };
 
-  const cardStyle = {
-    margin: "10px",
-  };
-
   return (
     <div className="container px-5 py-4 mx-auto">
       <div className="row" style={containerStyle}>
         {loading && <TruckLoader />}
-        {!loading
-          ? products.map((product) => (
-              <div className="card">
+        {!loading && !error && (
+          <>
+            {products.map((product) => (
+              <div className="card" key={product.id}>
                 <div className="card__wrapper"></div>
                 <div className="card__img">
                   <img
@@ -53,9 +53,9 @@ export default function Product() {
                   <div className="card__counter">
                     <button
                       type="button"
-                      className="btnj btn-primary btn-sm"
+                      className="btn btn-primary btn-sm"
                       onClick={() =>
-                        (window.location.href = `https://fakestoreapi.com/products/${product.id}`)
+                        (window.location.href = `/product/${product.id}/details`)
                       }
                     >
                       Buy Now
@@ -63,9 +63,13 @@ export default function Product() {
                   </div>
                 </div>
               </div>
-            ))
-          : !loading && <p>No articles found</p>}
+            ))}
+          </>
+        )}
+        {!loading && error && <p>{error}</p>}
       </div>
     </div>
   );
 }
+
+export default Product;
