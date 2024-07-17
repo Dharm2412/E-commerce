@@ -32,7 +32,11 @@ function Product() {
 
   return (
     <div className="container px-5 py-4 mx-auto">
-      <div className="text-center mb-4">PRODUCTS</div>
+      <div className="text-center products-heading">
+        <h2>
+          <mark>PRODUCTS</mark>
+        </h2>
+      </div>
       <div className="row row-cols-1 row-cols-md-3 g-4" style={containerStyle}>
         {loading && <TruckLoader />}
         {!loading && !error && (
@@ -54,7 +58,7 @@ function Product() {
                       <span className="card-price">${product.price}</span>
                       <Link to={`/product/${product.id}`}>
                         <button className="btn btn-primary btn-sm">
-                          Buy Now
+                          Details
                         </button>
                       </Link>
                     </div>

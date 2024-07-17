@@ -14,7 +14,7 @@ export default function Contectme() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-        <div className="Contect-1">
+        <div className="Contectmef-1">
           <form method="POST" action="https://formspree.io/f/xvgppaow">
             <div className="Contect mb-3 my-3">
               <label htmlFor="name" className="form-label">
