@@ -7,8 +7,8 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
-import "./Header.css"; // Custom CSS file for Header styles
-import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap CSS
+import "./Header.css"; 
+import "bootstrap/dist/css/bootstrap.min.css"; 
 
 function Header() {
   return (
@@ -54,9 +54,9 @@ function Header() {
               </Link>
             </li>
           </ul>
-          <div>
+          <div className="d-flex align-items-center">
             <SignedOut>
-              <SignInButton />
+              <SignInButton className="btn btn-outline-light mx-2" />
             </SignedOut>
             <SignedIn>
               <UserButton />
