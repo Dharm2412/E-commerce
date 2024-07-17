@@ -39,11 +39,6 @@ function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Contact">
-                Contact Us
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link className="nav-link" to="/product">
                 Product
               </Link>
@@ -53,8 +48,13 @@ function Header() {
                 Cart
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact-me">
+                Contact Us
+              </Link>
+            </li>
           </ul>
-          <div className="login">
+          <div>
             <SignedOut>
               <SignInButton />
             </SignedOut>

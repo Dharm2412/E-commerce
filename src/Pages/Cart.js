@@ -1,5 +1,5 @@
 import React from "react";
-import TruckLoader from "./DotLoader";
+import TruckLoader from "../Components/DotLoader";
 import "./Cart.css";
 
 export default function Cart() {
