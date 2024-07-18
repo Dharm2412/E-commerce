@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
@@ -33,13 +32,13 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/contact-me" element={<Contectme />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/product/:productId" element={<ProductDetails />} />
+          <Route path="/contact-me" element={authenticated ? <Contectme />: <Login/>} />
+          <Route path="/product" element={authenticated ? <Product />: <Login/>} />
           <Route
-            path="/cart"
-            element={authenticated ? <Cart/> : <Login/>}
+            path="/product/:productId"
+            element={authenticated ? <ProductDetails /> : <Login />}
           />
+          <Route path="/cart" element={authenticated ? <Cart /> : <Login />} />
         </Routes>
         <Footer />
       </div>

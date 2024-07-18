@@ -1,7 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "./ProductDetail.css"; // Ensure the CSS file name is correct
+import "./ProductDetail.css";
+
+const StarRating = ({ rating }) => {
+  const stars = [];
+
+  for (let i = 1; i <= 5; i++) {
+    stars.push(
+      <span key={i} className={i <= rating ? "star filled" : "star"}>
+        &#9733;
+      </span>
+    );
+  }
+
+  return <div className="star-rating">{stars}</div>;
+};
 
 function ProductDetails() {
   const { productId } = useParams();
@@ -13,7 +27,6 @@ function ProductDetails() {
     axios
       .get(`https://fakestoreapi.com/products/${productId}`)
       .then((res) => {
-        console.log(res.data.image); // Log image URL for debugging
         setProduct(res.data);
         setLoading(false);
       })
@@ -54,8 +67,9 @@ function ProductDetails() {
               <h3 className="product-title">{product.title}</h3>
               <p className="product-description">{product.description}</p>
               <h4 className="price">
-                current price: <span>${product.price}</span>
+                Current price: <span>${product.price}</span>
               </h4>
+              <StarRating rating={Math.round(product.rating?.rate || 0)} />
               <button
                 className="add-to-cart btn btn-default"
                 type="button"

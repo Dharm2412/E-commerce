@@ -1,6 +1,6 @@
 import React from "react";
-
-import "@fortawesome/fontawesome-free/css/all.css";
+import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
+import "@fortawesome/fontawesome-free/css/all.css"; // Import Font Awesome CSS
 
 const Home = () => {
   return (
@@ -85,7 +85,6 @@ const Home = () => {
           <div className="grid">
             <div className="icon">
               <i className="fa fa-3x fa-fire"></i>{" "}
-              {/* Font Awesome fire icon */}
             </div>
             <div className="desc">
               <h2>Premium Materials</h2>

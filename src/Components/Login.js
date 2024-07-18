@@ -1,20 +1,19 @@
 import React from "react";
-
-import './Login.css'
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
-  
+  const navigate = useNavigate();
 
   const handleLogin = () => {
-    window.open(
-      "https://present-cowbird-30.accounts.dev/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3000%2Fcart"
-    );
+    window.location.href =
+      "https://present-cowbird-30.accounts.dev/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3000%2Fcart";
   };
-    const handlecancle = () => {
-    window.open(
-      "/"
-    );
-  }; 
+
+  const handleCancel = () => {
+    navigate("/");
+  };
+
   return (
     <div className="login-modal">
       <div className="login-message">
@@ -22,7 +21,7 @@ const Login = () => {
       </div>
       <div className="login-buttons">
         <button onClick={handleLogin}>Login</button>
-        <button onClick={handlecancle}>Cancel</button>
+        <button onClick={handleCancel}>Cancel</button>
       </div>
     </div>
   );

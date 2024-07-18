@@ -1,8 +1,7 @@
-// Product.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import TruckLoader from "./DotLoader";
+import Loader2 from "./Loader2";
 
 function Product() {
   const [products, setProducts] = useState([]);
@@ -38,7 +37,13 @@ function Product() {
         </h2>
       </div>
       <div className="row row-cols-1 row-cols-md-3 g-4" style={containerStyle}>
-        {loading && <TruckLoader />}
+        {loading && (
+          <div className="col-12">
+            <div className="d-flex justify-content-center my-2">
+              <Loader2 />
+            </div>
+          </div>
+        )}
         {!loading && !error && (
           <>
             {products.map((product) => (
