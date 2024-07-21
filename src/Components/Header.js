@@ -53,6 +53,11 @@ function Header() {
                 Contact Us
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/secondhand">
+                Second Hand product
+              </Link>
+            </li>
           </ul>
           <div className="d-flex align-items-center">
             <SignedOut>

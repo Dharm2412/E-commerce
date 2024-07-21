@@ -162,4 +162,11 @@ body {
   justify-content: center;
   padding: 50px;
 }
+.form-container {
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 0.25rem; /* Rounded corners */
+  padding: 1.5rem; /* Padding inside the container */
+  background-color: #fff; /* White background color */
+  box-shadow: 0 0 0.125rem rgba(0, 0, 0, 0.075); /* Subtle shadow */
+}
 
