@@ -17,6 +17,7 @@ export default function SDiscription() {
         const snapshot = await get(child(dbRef, `products/${id}`));
         if (snapshot.exists()) {
           setProduct(snapshot.val());
+          setError(null); // Clear any previous error
         } else {
           setError("No data available for this product.");
         }

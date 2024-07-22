@@ -169,4 +169,23 @@ body {
   background-color: #fff; /* White background color */
   box-shadow: 0 0 0.125rem rgba(0, 0, 0, 0.075); /* Subtle shadow */
 }
+.products-heading {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333;
+  text-transform: uppercase;
+}
 
+.products-heading h2 {
+  display: inline-block;
+  background-color: #f9f9f9;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.products-heading mark {
+  background-color: #ffeb3b;
+  padding: 5px;
+  border-radius: 3px;
+}

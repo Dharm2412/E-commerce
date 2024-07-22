@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Loader2 from "./Loader2";
 
+
 function Product() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,20 +24,30 @@ function Product() {
   }, []);
 
   const containerStyle = {
-    display: "flex",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gap: "20px",
     justifyContent: "center",
     alignItems: "center",
-    flexWrap: "wrap",
+    padding: "0",
+  };
+
+  const cardStyle = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    height: "100%",
+    padding: "0",
   };
 
   return (
-    <div className="container px-5 py-4 mx-auto">
-      <div className="text-center products-heading">
+    <div>
+      <div className="my-3 text-center products-heading">
         <h2>
-          <mark>PRODUCTS</mark>
+          PRODUCTS
         </h2>
       </div>
-      <div className="row row-cols-1 row-cols-md-3 g-4" style={containerStyle}>
+      <div className="container mx-auto mb-5" style={containerStyle}>
         {loading && (
           <div className="col-12">
             <div className="d-flex justify-content-center my-2">
@@ -47,26 +58,25 @@ function Product() {
         {!loading && !error && (
           <>
             {products.map((product) => (
-              <div className="col" key={product.id}>
-                <div className="card h-100">
-                  <img
-                    src={product.image}
-                    className="card-img-top"
-                    alt="Product"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">{product.title}</h5>
-                    <p className="card-text">
-                      {product.description.slice(0, 50)}...
-                    </p>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <span className="card-price">${product.price}</span>
-                      <Link to={`/product/${product.id}`}>
-                        <button className="btn btn-primary btn-sm">
-                          Details
-                        </button>
-                      </Link>
-                    </div>
+              <div className="my-3 card h-80" key={product.id} style={cardStyle}>
+                <img
+                  src={product.image}
+                  className="my-3 card-img-top"
+                  alt="Product"
+                  style={{ maxHeight: "200px", objectFit: "contain" }}
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{product.title}</h5>
+                  <p className="card-text">
+                    {product.description.slice(0, 50)}...
+                  </p>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <span className="card-price">${product.price}</span>
+                    <Link to={`/product/${product.id}`}>
+                      <button className="btn btn-primary">
+                        Details
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
