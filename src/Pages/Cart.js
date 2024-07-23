@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -19,198 +19,182 @@ const Cart = () => {
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   };
 
+  const handleQuantityChange = (index, event) => {
+    const newQuantity = Number(event.target.value);
+    if (isNaN(newQuantity) || newQuantity < 1) {
+      return; // Ignore invalid quantities
+    }
+
+    const updatedCartItems = [...cartItems];
+    updatedCartItems[index].quantity = newQuantity;
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+  };
+
   // Calculate subtotal, shipping, and total
   const subtotal = cartItems.reduce(
-    (acc, item) => acc + item.price * item.quantity,
+    (acc, item) => acc + Number(item.price) * item.quantity,
     0
   );
   const shipping = 20; // Replace with your shipping logic
   const total = subtotal + shipping;
 
+  // Calculate total quantity
+  const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
-    <>
-      
-      <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
-        <div className="container py-5 h-100">
-          <div className="row justify-content-center align-items-start">
-            <div className="col-lg-7">
-              <h5 className="mb-3">
-                <a href="#!" className="text-body">
-                  <i className="fas fa-long-arrow-alt-left me-2"></i>
-                  Continue shopping
-                </a>
-              </h5>
-              <hr />
+    <div className="container">
+      <main>
+        <div className="py-5 text-center">
+          <img
+            className="d-block mx-auto mb-4"
+            src="https://e7.pngegg.com/pngimages/81/559/png-clipart-shopping-cart-software-computer-icons-shopping-cart-text-retail.png"
+            alt="Shopping Cart"
+            width="72"
+            height="57"
+          />
+          <h2>Your Cart</h2>
+          <p className="lead">
+            Review the items in your cart and proceed to checkout when ready.
+          </p>
+        </div>
 
-              <div className="d-flex justify-content-between align-items-center mb-4">
-                <div>
-                  <p className="mb-1">Shopping cart</p>
-                  <p className="mb-0">
-                    You have {cartItems.length} items in your cart
-                  </p>
-                </div>
-              </div>
-
-              {cartItems.map((item, index) => (
-                <div className="card mb-3" key={index}>
-                  <div className="card-body d-flex justify-content-between align-items-center">
-                    <div className="d-flex flex-row align-items-center">
+        <div className="row g-5">
+          <div className="col-md-7 col-lg-8">
+            <h4 className="mb-3">Shopping cart</h4>
+            <ul className="list-group mb-3">
+              {cartItems.length === 0 ? (
+                <li className="list-group-item text-center">
+                  Your cart is empty.
+                </li>
+              ) : (
+                cartItems.map((item, index) => (
+                  <li
+                    className="list-group-item d-flex justify-content-between lh-sm"
+                    key={index}
+                  >
+                    <div className="d-flex">
+                      <img
+                        src={item.imageUrl}
+                        alt={item.title}
+                        onError={(event) => {
+                          event.target.src = "https://via.placeholder.com/100"; 
+                        }}
+                        style={{
+                          width: "100px",
+                          height: "100px",
+                          objectFit: "cover",
+                          borderRadius: "5px",
+                        }}
+                        className="me-3"
+                      />
                       <div>
-                        <img
-                          src={item.image}
-                          className="img-fluid rounded-3"
-                          alt="Shopping item"
-                          style={{ width: 65 }}
-                        />
-                      </div>
-                      <div className="ms-3">
-                        <h5>{item.title}</h5>
-                        <p className="small mb-0">Quantity: {item.quantity}</p>
-                      </div>
-                    </div>
-                    <div className="d-flex flex-row align-items-center">
-                      <div style={{ width: 50 }}>
-                        <h5 className="fw-normal mb-0">{item.quantity}</h5>
-                      </div>
-                      <div style={{ width: 80 }}>
-                        <h5 className="mb-0">${item.price.toFixed(2)}</h5>
-                      </div>
-                      <button
-                        onClick={() => handleDeleteItem(index)}
-                        className="btn btn-sm btn-outline-danger"
-                      >
-                        <i className="fas fa-trash-alt"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="col-lg-5 mt-4 mt-lg-0">
-              <div className="card bg-primary text-white rounded-3">
-                <div className="card-body">
-                  <div className="d-flex justify-content-between align-items-center mb-4">
-                    <h5 className="mb-0">Card details</h5>
-                    <img
-                      src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                      className="img-fluid rounded-3"
-                      style={{ width: 45 }}
-                      alt="Avatar"
-                    />
-                  </div>
-
-                  <p className="small mb-2">Card type</p>
-                  <div className="d-flex mb-4">
-                    <a href="#!" className="text-white me-3">
-                      <i className="fab fa-cc-mastercard fa-2x"></i>
-                    </a>
-                    <a href="#!" className="text-white me-3">
-                      <i className="fab fa-cc-visa fa-2x"></i>
-                    </a>
-                    <a href="#!" className="text-white me-3">
-                      <i className="fab fa-cc-amex fa-2x"></i>
-                    </a>
-                    <a href="#!" className="text-white">
-                      <i className="fab fa-cc-paypal fa-2x"></i>
-                    </a>
-                  </div>
-
-                  <form>
-                    <div className="mb-4">
-                      <label htmlFor="typeName" className="form-label">
-                        Cardholder's Name
-                      </label>
-                      <input
-                        type="text"
-                        id="typeName"
-                        className="form-control form-control-lg"
-                        placeholder="Cardholder's Name"
-                        required
-                      />
-                    </div>
-
-                    <div className="mb-4">
-                      <label htmlFor="typeText" className="form-label">
-                        Card Number
-                      </label>
-                      <input
-                        type="text"
-                        id="typeText"
-                        className="form-control form-control-lg"
-                        placeholder="1234 5678 9012 3457"
-                        minLength="19"
-                        maxLength="19"
-                        required
-                      />
-                    </div>
-
-                    <div className="row mb-4">
-                      <div className="col-md-6">
-                        <label htmlFor="typeExp" className="form-label">
-                          Expiration
-                        </label>
-                        <input
-                          type="text"
-                          id="typeExp"
-                          className="form-control form-control-lg"
-                          placeholder="MM/YYYY"
-                          minLength="7"
-                          maxLength="7"
-                          required
-                        />
-                      </div>
-                      <div className="col-md-6">
-                        <label htmlFor="typeCVV" className="form-label">
-                          CVV
-                        </label>
-                        <input
-                          type="password"
-                          id="typeCVV"
-                          className="form-control form-control-lg"
-                          placeholder="&#9679;&#9679;&#9679;"
-                          minLength="3"
-                          maxLength="3"
-                          required
-                        />
+                        <h6 className="my-0">{item.title}</h6>
+                        <small className="text-muted">
+                          Quantity:{" "}
+                          <input
+                            type="number"
+                            min="1"
+                            value={item.quantity}
+                            onChange={(event) =>
+                              handleQuantityChange(index, event)
+                            }
+                          />
+                        </small>
                       </div>
                     </div>
-
-                    <div className="d-flex justify-content-between mb-4">
-                      <p className="mb-0">Subtotal</p>
-                      <p className="mb-0">${subtotal.toFixed(2)}</p>
-                    </div>
-
-                    <div className="d-flex justify-content-between mb-4">
-                      <p className="mb-0">Shipping</p>
-                      <p className="mb-0">${shipping.toFixed(2)}</p>
-                    </div>
-
-                    <div className="d-flex justify-content-between mb-4">
-                      <p className="mb-0">Total (Incl. taxes)</p>
-                      <p className="mb-0">${total.toFixed(2)}</p>
-                    </div>
-
+                    <span className="text-muted">
+                      ${(Number(item.price) * item.quantity).toFixed(2)}
+                    </span>
                     <button
-                      type="submit"
-                      className="btn btn-info btn-block btn-lg"
+                      onClick={() => handleDeleteItem(index)}
+                      className="btn btn-sm btn-outline-danger"
                     >
-                      <div className="d-flex justify-content-between align-items-center">
-                        <span>${total.toFixed(2)}</span>
-                        <span>
-                          Checkout{" "}
-                          <i className="fas fa-long-arrow-alt-right ms-2"></i>
-                        </span>
-                      </div>
+                      <i className="fas fa-trash-alt"></i>
                     </button>
-                  </form>
+                  </li>
+                ))
+              )}
+              <li className="list-group-item d-flex justify-content-between bg-light">
+                <div className="text-success">
+                  <h6 className="my-0">Promo code</h6>
+                  <small>EXAMPLECODE</small>
+                </div>
+                <span className="text-success">−$5</span>
+              </li>
+              <li className="list-group-item d-flex justify-content-between">
+                <span>Subtotal</span>
+                <strong>${subtotal.toFixed(2)}</strong>
+              </li>
+              <li className="list-group-item d-flex justify-content-between">
+                <span>Shipping</span>
+                <strong>${shipping.toFixed(2)}</strong>
+              </li>
+              <li className="list-group-item d-flex justify-content-between">
+                <span>Total (USD)</span>
+                <strong>${total.toFixed(2)}</strong>
+              </li>
+            </ul>
+          </div>
+
+          <div className="col-md-5 col-lg-4">
+            <h4 className="mb-3">Checkout</h4>
+            <form className="needs-validation" noValidate>
+              <div className="row g-3">
+                <div className="col-md-12">
+                  <label htmlFor="fullName" className="form-label">
+                    Full name
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="fullName"
+                    placeholder="Full name"
+                    required
+                  />
+                  <div className="invalid-feedback">Full name is required.</div>
+                </div>
+
+                <div className="col-md-12">
+                  <label htmlFor="address" className="form-label">
+                    Address
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="address"
+                    placeholder="1234 Main St"
+                    required
+                  />
+                  <div className="invalid-feedback">Address is required.</div>
+                </div>
+
+                <div className="col-md-12">
+                  <label htmlFor="paymentMethod" className="form-label">
+                    Payment Method
+                  </label>
+                  <select className="form-select" id="paymentMethod" required>
+                    <option value="">Choose...</option>
+                    <option value="credit">Credit Card</option>
+                    <option value="debit">Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                  </select>
+                  <div className="invalid-feedback">
+                    Please select a payment method.
+                  </div>
                 </div>
               </div>
-            </div>
+
+              <hr className="my-4" />
+
+              <button className="w-100 btn btn-primary btn-lg" type="submit">
+                Proceed to checkout
+              </button>
+            </form>
           </div>
         </div>
-      </section>
-    </>
+      </main>
+    </div>
   );
 };
 
