@@ -36,7 +36,7 @@ export default function BuyProduct() {
   }, []);
 
   const handleBuyClick = (id) => {
-    navigate(`/product/${id}`);
+    navigate(`/secondhand/${id}`);
   };
 
   return (

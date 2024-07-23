@@ -10,7 +10,7 @@ import ProductDetails from "./Pages/ProductDetails";
 import { useClerk } from "@clerk/clerk-react";
 import Login from "./Components/Login";
 import SecondHand from "./Pages/SecondHand";
-import SDiscription from "./Pages/SDiscription";
+
 
 function App() {
   const { user } = useClerk();
@@ -46,10 +46,6 @@ function App() {
           <Route
             path="/secondhand"
             element={authenticated ? <SecondHand /> : <Login />}
-          />
-          <Route
-            path="/product/:id"
-            element={authenticated ? <SDiscription /> : <Login />}
           />
         </Routes>
         <Footer />
