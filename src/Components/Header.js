@@ -8,7 +8,7 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 import "./Header.css"; 
-import "bootstrap/dist/css/bootstrap.min.css"; 
+
 
 function Header() {
   return (
@@ -59,7 +59,8 @@ function Header() {
               </Link>
             </li>
           </ul>
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-item s-center">
+            
             <SignedOut>
               <SignInButton className="btn btn-outline-light mx-2" />
             </SignedOut>
