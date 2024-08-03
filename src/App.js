@@ -31,7 +31,7 @@ function App() {
       <div>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route
             path="/contact-me"
             element={authenticated ? <Contectme /> : <Login />}
